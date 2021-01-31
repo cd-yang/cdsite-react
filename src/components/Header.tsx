@@ -1,12 +1,15 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Affix } from 'antd';
+import './Header.css';
 
 export default function Header() {
     return (
-        <Affix>
-            <HeaderNavItem exact to="/" name="Blog" />
-            <HeaderNavItem to="/about" name="About" />
-            <HeaderNavItem to="/contact" name="Contact" />
+        <Affix className='affix-header'>
+            <Link to="/">
+                <img className="affix-header-logo" alt='logo' src="/logo192.png" />
+            </Link>
+            <HeaderNavItem exact to="/" name="CD-Yang" />
+            <HeaderNavItem to="/about" name="关于" />
         </Affix>
     );
 }
