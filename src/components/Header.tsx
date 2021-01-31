@@ -10,6 +10,7 @@ export default function Header() {
         </Affix>
     );
 }
+
 interface IHeaderProps {
     exact?: boolean;
     to: string;
@@ -24,15 +25,3 @@ const HeaderNavItem: React.FunctionComponent<IHeaderProps> = ({ exact, to, name 
         activeClassName="active">
         {name}
     </NavLink>;
-
-// (props:IHeaderProps) => {
-//     return (
-//         <NavLink
-//             to={props.to}
-//             className="nav-item"
-//             exact={props.exact ? true : false}
-//             activeClassName="active">
-//             {props.name}
-//         </NavLink>
-//     );
-// }

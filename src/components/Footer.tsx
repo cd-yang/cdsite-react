@@ -6,7 +6,7 @@ const { Footer: AntFooter } = Layout;
 export default function Footer() {
     return (
         <AntFooter style={footerStyle}>
-            <div className="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">沪ICP备20008178号 </a></div>
+            <div className="beian"><a href="http://www.beian.miit.gov.cn/" rel="noreferrer" target="_blank">沪ICP备20008178号 </a></div>
             <div className="copyright">&copy;
           <span>2020</span>
                 <span className="with-love">
