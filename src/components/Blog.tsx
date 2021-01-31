@@ -1,29 +1,60 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import Axios from 'axios';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const postsData = [
-    {
-        "title": "Hello World",
-        "slug": "hello-world",
-        "content": "This is the Hello World post. WordPress says edit or delete this kind of posts. I say just keep it."
-    },
-    {
-        "title": "React Lesson 1",
-        "slug": "react-lesson-1",
-        "content": "The first lesson of React is to learn Javascript first. So, search 'Javascript Tutorial' in Google and follow it. Then, come back here. You'll see the tutorial when you are an Javascript expert. (MAGIC)"
-    }
-];
+interface IBlog {
+    id: number;
+    title: string;
+    author: string;
+    slug: string;
+    content: string;
+}
+interface IPosts {
+    data: IBlog[];
+    dataCount: number;
+    page: number;
+    pageCount: number;
+    pageSize: number;
+}
+interface IResponse {
+    msg: string;
+    response: IPosts;
+    status: number;
+    success: boolean;
+}
 
-export default function Blog() {
-    const posts = postsData.map(post => {
+interface Props {
+    postData?: IPosts;
+}
+
+export default class Blog extends React.Component<Props> {
+    state = {
+        postData: {} as IPosts,
+    };
+
+    public render() {
         return (
-            <Link to={"/post/" + post.slug} key={post.slug}>
-                <div className="post-listing">
-                    <h1>{post.title}</h1>
-                </div>
-            </Link>
+            <div className="blog">
+                {this.state.postData?.data ? this.state.postData?.data?.map(post => {
+                    return (
+                        <Link to={"/post/" + post.slug} key={post.slug}>
+                            <div className="post-listing">
+                                <h1>{post.title}</h1>
+                            </div>
+                        </Link>
+                    );
+                }) : <div>no data</div>}
+            </div>
         );
-    });
+    };
 
-    return <div className="blog">{posts}</div>;
+    public componentDidMount() {
+        console.log('componentDidMount');
+        Axios.get<IResponse>('/api/Blog?page=1')
+            .then(res => {
+                this.setState({ postData: res.data.response });
+            })
+            .catch(error => console.log(error));
+    }
+
 }

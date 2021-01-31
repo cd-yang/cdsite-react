@@ -1,8 +1,8 @@
-import { Route, Switch } from "react-router";
-import About from "./About";
-import Blog from "./Blog";
-import Contact from "./Contact";
-import Post from "./Post";
+import { Route, Switch } from 'react-router';
+import About from './About';
+import Blog from './Blog';
+import Contact from './Contact';
+import Post from './Post';
 
 export default function Body() {
     return (
