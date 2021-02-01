@@ -1,6 +1,8 @@
 import Axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Spin } from 'antd';
+import './Blog.css';
 
 interface IBlog {
     id: number;
@@ -35,15 +37,19 @@ export default class Blog extends React.Component<Props> {
     public render() {
         return (
             <div className="blog">
-                {this.state.postData?.data ? this.state.postData?.data?.map(post => {
-                    return (
-                        <Link to={"/post/" + post.slug} key={post.slug}>
-                            <div className="post-listing">
-                                <h1>{post.title}</h1>
-                            </div>
-                        </Link>
-                    );
-                }) : <div>no data</div>}
+                {
+                    this.state.postData?.data
+                        ? this.state.postData?.data?.map(post => {
+                            return (
+                                <Link to={"/post/" + post.slug} key={post.slug}>
+                                    <div className="post-listing">
+                                        <h1>{post.title}</h1>
+                                    </div>
+                                </Link>
+                            );
+                        })
+                        : <Spin size="large" tip="Loading..."></Spin>
+                }
             </div>
         );
     };
