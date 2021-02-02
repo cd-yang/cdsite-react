@@ -1,6 +1,5 @@
 export default function About() {
     return (
-        // style="margin-top:10px;"
         <div className="container">
             <h3>Me and the Blog</h3>
             <hr />
@@ -9,18 +8,24 @@ export default function About() {
                     <section id="self-intro">
                         <blockquote className="blockquote">
                             <p>
-                                此博客为学习 .Net Core 和 Vue.js 学习的作品。
-                        </p>
+                                Powered by
+                                <a target="_blank" rel="noreferrer" href="https://reactjs.org/" style={{ margin: "0px 4px" }}>
+                                    <img alt="React" src="https://img.shields.io/badge/-React-77dffc?logo=react&logoColor=ffffff"></img>
+                                </a>
+                                and
+                                <a target="_blank" rel="noreferrer" href="https://dotnet.microsoft.com/" style={{ marginLeft: "4px" }} >
+                                    <img alt=".Net 5" src="https://img.shields.io/badge/.NET5-6e16e8?logo=C-Sharp&logoColor=ffffff" />
+                                </a>
+                            </p>
                         </blockquote>
                         <p>
                             Contact me: <a href="mailto:yang.caidong@foxmail.com">yang.caidong@foxmail.com</a>
                         </p>
                         <div>
-                            <a href="https://github.com/cd-yang" className="btn btn-outline-success" target="_blank">
+                            <a href="https://github.com/cd-yang" target="_blank" rel="noreferrer">
                                 <span className="icon-github"></span>
-                            GitHub
-                        </a>
-
+                                GitHub
+                            </a>
                         </div>
                     </section>
                 </div>
