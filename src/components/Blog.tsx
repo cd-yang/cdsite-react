@@ -2,36 +2,16 @@ import Axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Spin } from 'antd';
+import { IBlog, IResponse } from '../model/IBlog';
 import './Blog.css';
 
-interface IBlog {
-    id: number;
-    title: string;
-    author: string;
-    slug: string;
-    content: string;
-}
-interface IPosts {
-    data: IBlog[];
-    dataCount: number;
-    page: number;
-    pageCount: number;
-    pageSize: number;
-}
-interface IResponse {
-    msg: string;
-    response: IPosts;
-    status: number;
-    success: boolean;
+export interface IBlogProps {
+    postData?: IBlog;
 }
 
-interface Props {
-    postData?: IPosts;
-}
-
-export default class Blog extends React.Component<Props> {
+export default class Blog extends React.Component<IBlogProps> {
     state = {
-        postData: {} as IPosts,
+        postData: {} as IBlog,
     };
 
     public render() {
@@ -55,7 +35,8 @@ export default class Blog extends React.Component<Props> {
     };
 
     public componentDidMount() {
-        console.log('componentDidMount');
+        console.log('Blog componentDidMount');
+        console.log(this.state.postData);
         Axios.get<IResponse>('/api/Blog?page=1')
             .then(res => {
                 this.setState({ postData: res.data.response });

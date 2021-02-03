@@ -1,35 +1,44 @@
+import Axios from 'axios';
+import { Spin } from 'antd';
 import React from 'react';
-import { useParams } from 'react-router';
+import { IPost, IResponse } from '../model/IBlog';
+import { RouteComponentProps } from 'react-router-dom';
 
-const postsData = [
-    {
-        "title": "Hello World",
-        "slug": "hello-world",
-        "content": "This is the Hello World post. WordPress says edit or delete this kind of posts. I say just keep it."
-    },
-    {
-        "title": "React Lesson 1",
-        "slug": "react-lesson-1",
-        "content": "The first lesson of React is to learn Javascript first. So, search 'Javascript Tutorial' in Google and follow it. Then, come back here. You'll see the tutorial when you are an Javascript expert. (MAGIC)"
+interface IRouteInfo {
+    slug: string;
+}
+
+interface IPostProps extends RouteComponentProps<IRouteInfo> {
+}
+
+export default class Post extends React.Component<IPostProps> {
+    state = {
+        post: {} as IPost,
+    };
+
+    public render() {
+        return (
+            this.state.post
+                ? <div className="post-content-view">
+                    <h1 className="title">{this.state.post ? this.state.post.title : 'no title'}</h1>
+                    <article>{this.state.post?.content}</article>
+                </div>
+                : <Spin size="large" tip="Loading..."></Spin>
+        );
     }
-]
 
-interface ParamTypes {
-    slug: string
+    public componentDidMount() {
+        console.log('Post componentDidMount');
+        let slug = this.props?.match?.params?.slug;
+        if (!slug)
+            return;
+        Axios.get<IResponse>('/api/Blog/' + slug)
+            .then(res => {
+                console.log(res.data.response);
+                this.setState({ post: res.data.response });
+            })
+            .catch(error => console.log(error));
+    }
+
 }
 
-export default function Post() {
-    let { slug } = useParams<ParamTypes>();
-    let post = findPostBySlug(slug);
-
-    return (
-        <div className="post-content-view">
-            <h1 className="title">{post ? post.title : ''}</h1>
-            <article>{post ? post.content : ''}</article>
-        </div>
-    );
-}
-
-function findPostBySlug(slug: string) {
-    return postsData.find(o => o.slug === slug);
-}
