@@ -21,11 +21,17 @@ export default class Blog extends React.Component<IBlogProps> {
                     this.state.postData?.data
                         ? this.state.postData?.data?.map(post => {
                             return (
-                                <Link to={"/post/" + post.slug} key={post.slug}>
-                                    <div className="post-listing">
-                                        <h1>{post.title}</h1>
-                                    </div>
-                                </Link>
+                                <div>
+                                    <section>
+                                        <Link to={"/post/" + post.slug} key={post.slug} style={{ fontSize: "2em" }}>
+                                            {post.title}
+                                        </Link>
+                                    </section>
+                                    <time style={{ marginLeft: "0.5em" }}>
+                                        {new Date(post.createOnUtc).toLocaleDateString()}
+                                    </time>
+                                    <article style={{ marginBottom: "30px" }}>{post.contentAbstract}</article>
+                                </div>
                             );
                         })
                         : <Spin size="large" tip="Loading..."></Spin>

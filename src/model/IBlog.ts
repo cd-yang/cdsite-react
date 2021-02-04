@@ -4,6 +4,8 @@ export interface IPost {
     author: string;
     slug: string;
     content: string;
+    createOnUtc: string;
+    contentAbstract: string;
 }
 
 export interface IBlog {
