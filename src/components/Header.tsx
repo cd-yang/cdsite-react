@@ -4,7 +4,7 @@ import './Header.css';
 
 export default function Header() {
     return (
-        <Affix className='affix-header' >
+        <Affix className='affix-header'>
             <div className='divHeader'>
                 <Link to="/" className="logoLink">
                     <img className="affix-header-logo" alt='logo' src="/logo192.png" />
