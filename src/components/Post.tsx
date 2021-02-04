@@ -19,9 +19,9 @@ export default class Post extends React.Component<IPostProps> {
     public render() {
         return (
             this.state.post
-                ? <div className="post-content-view">
-                    <h1 className="title">{this.state.post ? this.state.post.title : 'no title'}</h1>
-                    <article>{this.state.post?.content}</article>
+                ? <div>
+                    <h1>{this.state.post ? this.state.post.title : 'no title'}</h1>
+                    <article dangerouslySetInnerHTML={{ __html: this.state.post?.content }} />
                 </div>
                 : <Spin size="large" tip="Loading..."></Spin>
         );

@@ -1,0 +1,10 @@
+.bodyContent{
+    align-self: center;
+    padding:0 20px;
+}
+
+@media (min-width: 768px){
+    .bodyContent{
+        padding:0 20%;
+    }
+}

@@ -4,12 +4,14 @@ import './Header.css';
 
 export default function Header() {
     return (
-        <Affix className='affix-header'>
-            <Link to="/">
-                <img className="affix-header-logo" alt='logo' src="/logo192.png" />
-            </Link>
-            <HeaderNavItem exact to="/" name="CD-Yang" />
-            <HeaderNavItem to="/about" name="关于" />
+        <Affix className='affix-header' >
+            <div className='divHeader'>
+                <Link to="/" className="logoLink">
+                    <img className="affix-header-logo" alt='logo' src="/logo192.png" />
+                </Link>
+                <HeaderNavItem exact to="/" name="CD-Yang" />
+                <HeaderNavItem to="/about" name="关于" />
+            </div>
         </Affix>
     );
 }
