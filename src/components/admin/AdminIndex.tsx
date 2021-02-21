@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Login from './Login'
-import AdminPage from './AdminPage'
-import GuestRoute from '../../utils/GuestRoute'
-import PrivateRoute from '../../utils/PrivateRoute'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Login from './Login';
+import AdminPage from './AdminPage';
+import GuestRoute from './utils/GuestRoute';
+import PrivateRoute from './utils/PrivateRoute';
 
 //redux stuff
 import { Provider } from 'react-redux';
-import store from '../../redux/store';
-import { CheckAuthentication } from '../../utils/CheckAuthentication'
+import store from './redux/store';
+import { CheckAuthentication } from './utils/CheckAuthentication';
 import NotFound from '../NotFound';
 
 const AdminIndex: React.FC = () => {

@@ -3,7 +3,7 @@ const initialState = {
     loading: false,
     errors: null
 }
-export default function (state = initialState, action: any) {
+export default function UiReducer(state = initialState, action: any) {
     switch (action.type) {
         case SET_ERRORS:
             return {

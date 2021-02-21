@@ -1,21 +1,21 @@
-import React from 'react'
-import { Route, Redirect, RouteProps } from 'react-router-dom'
+import React from 'react';
+import { Route, Redirect, RouteProps } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-//redux stuff
-import { connect } from 'react-redux'
 interface MyRouteProps extends RouteProps {
     component: any;
     authenticated: boolean;
     rest?: any
 }
 
-const GuestRoute: React.SFC<MyRouteProps> = ({ component: Component, authenticated, ...rest }) => (
+const PrivateRoute: React.FC<MyRouteProps> = ({ component: Component, authenticated, ...rest }: any) => (
     <Route
         {...rest}
         render={(props) =>
             authenticated ?
-                <Redirect to='/' /> :
                 <Component {...props} />
+                :
+                <Redirect to='/admin/login' />
         }
     />
 );
@@ -23,5 +23,4 @@ const GuestRoute: React.SFC<MyRouteProps> = ({ component: Component, authenticat
 const mapStateToProps = (state: any) => ({
     authenticated: state.user.authenticated
 });
-
-export default connect(mapStateToProps)(GuestRoute)
+export default connect(mapStateToProps)(PrivateRoute)

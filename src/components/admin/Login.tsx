@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';//, useEffect
 import { Button } from 'antd';
 // import CssBaseline from '@material-ui/core/CssBaseline';
 // import TextField from '@material-ui/core/TextField';
@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom'
 
 //redux stuff
 import { connect } from 'react-redux';
-import { loginUser } from '../../redux/actions/userActions'
+import { loginUser } from './redux/actions/userActions'
 
 function Login(props: any) {
     const [values, setValues] = useState({
@@ -23,19 +23,19 @@ function Login(props: any) {
         password: ''
     });//as userDataProps
 
-    const [errors, setErrors] = useState({});// as formError
-    const [loading, setLoading] = useState(false);
+    // const [errors, setErrors] = useState({});// as formError
+    // const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        if (props.UI.errors) {
-            setErrors(props.UI.errors);
-        }
-        setLoading(props.UI.loading);
-    }, [props.UI])
+    // useEffect(() => {
+    //     if (props.UI.errors) {
+    //         setErrors(props.UI.errors);
+    //     }
+    //     setLoading(props.UI.loading);
+    // }, [props.UI])
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        setLoading(true);
+        // setLoading(true);
         //your client side validation here
         //after success validation
         const userData = {
