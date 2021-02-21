@@ -1,7 +1,12 @@
 import { SET_USER, LOADING_UI, CLEAR_ERRORS, SET_UNAUTHENTICATED, LOADING_USER } from '../types';//, SET_ERRORS
 import axios from 'axios';
 
-export const loginUser = (userData: any, history: any) => (dispatch: any) => {
+export type userDataProps = {
+    email: ''
+    password: ''
+}
+
+export const loginUser = (userData: userDataProps, history: any) => (dispatch: any) => {
     dispatch({ type: LOADING_UI })
 
     //测试

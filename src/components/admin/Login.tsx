@@ -1,27 +1,16 @@
 import React, { useState } from 'react';//, useEffect
 import { Button } from 'antd';
-// import CssBaseline from '@material-ui/core/CssBaseline';
-// import TextField from '@material-ui/core/TextField';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import Checkbox from '@material-ui/core/Checkbox';
-// import Grid from '@material-ui/core/Grid';
-// import Typography from '@material-ui/core/Typography';
-// import { makeStyles } from '@material-ui/core/styles';
-// import Container from '@material-ui/core/Container';
-// import { Paper, Box } from '@material-ui/core';
-// import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom'
-// import CircularProgress from '@material-ui/core/CircularProgress';
+// import { Link } from 'react-router-dom'
 
 //redux stuff
 import { connect } from 'react-redux';
-import { loginUser } from './redux/actions/userActions'
+import { loginUser, userDataProps } from './redux/actions/userActions'
 
 function Login(props: any) {
     const [values, setValues] = useState({
         email: '',
         password: ''
-    });//as userDataProps
+    } as userDataProps);
 
     // const [errors, setErrors] = useState({});// as formError
     // const [loading, setLoading] = useState(false);
@@ -53,56 +42,24 @@ function Login(props: any) {
     };
     return (
         <div>
-            <div >
-                <div >
-                    <div>
-                        SIGN IN
-                    </div>
-                </div>
-            </div>
+            <div>SIGN IN</div>
             <div>
-                <div />
-                <div>
-                    <div>
-                        <div>
-                            <div>
-                                <input
-                                    value={values.email}
-                                    id='email'
-                                    name='email'
-                                    type='email'
-                                    onChange={handleChange}
-                                />
-                                <input
-                                    value={values.password}
-                                    name='password'
-                                    type='password'
-                                    onChange={handleChange}
-                                />
-                                <div>
-                                    {/* {errors.message} */}
-                                </div>
-
-                                <div>
-                                    <div>
-                                        <div>Remember me</div>
-                                    </div>
-                                    <div>
-                                        <Link to='#'>
-                                            Forgot password?
-                                        </Link>
-                                    </div>
-                                </div>
-                                <Button onClick={handleSubmit}>
-                                    Login
-                                </Button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div >
-        </div >
+                <input
+                    value={values.email}
+                    id='email'
+                    name='email'
+                    type='email'
+                    onChange={handleChange}
+                />
+                <input
+                    value={values.password}
+                    name='password'
+                    type='password'
+                    onChange={handleChange}
+                />
+                <Button onClick={handleSubmit}>Login</Button>
+            </div>
+        </div>
     )
 }
 
@@ -114,7 +71,7 @@ const mapStateToProps = (state: any) => ({
 
 //this map actions to our props in this functional component
 const mapActionsToProps = {
-    loginUser
+    loginUser: loginUser
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(Login)
