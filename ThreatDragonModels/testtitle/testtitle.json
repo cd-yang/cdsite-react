@@ -10,13 +10,7 @@
         "name": "qwer"
       }
     ],
-    "diagrams": [
-      {
-        "title": "qwer",
-        "thumbnail": "./public/content/images/thumbnail.jpg",
-        "id": 0
-      }
-    ],
+    "diagrams": [],
     "reviewer": "qwer"
   }
 }
