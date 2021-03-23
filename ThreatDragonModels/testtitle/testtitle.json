@@ -1,9 +1,22 @@
 {
   "summary": {
-    "title": "testtitle"
+    "title": "testtitle",
+    "owner": "qwer",
+    "description": "qwer"
   },
   "detail": {
-    "contributors": [],
-    "diagrams": []
+    "contributors": [
+      {
+        "name": "qwer"
+      }
+    ],
+    "diagrams": [
+      {
+        "title": "qwer",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 0
+      }
+    ],
+    "reviewer": "qwer"
   }
 }
