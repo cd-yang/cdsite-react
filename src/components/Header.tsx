@@ -11,6 +11,10 @@ export default function Header() {
                 </Link>
                 <HeaderNavItem exact to="/" name="CD-Yang" />
                 <HeaderNavItem to="/about" name="关于" />
+
+                <HeaderNavItem exact to="/admin" name="admin" />
+                <HeaderNavItem exact to="/admin/log-in" name="Log in" />
+                <HeaderNavItem to="/admin/log-out" name="Log out" />
             </div>
         </Affix>
     );
