@@ -1,0 +1,27 @@
+.affixHeader {
+  height: 46px;
+  line-height: 40px;
+}
+
+.divHeader {
+  padding-bottom: 3px;
+  background: rgb(227, 227, 227);
+}
+
+.affixHeaderLogo {
+  width: 30px;
+}
+
+.logoLink {
+  margin-left: 30px;
+}
+.nav-item {
+  margin-left: 30px;
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .logoLink {
+    margin-left: 25%;
+  }
+}
