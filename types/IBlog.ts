@@ -16,9 +16,9 @@ export interface IBlog {
     pageSize: number;
 }
 
-export interface IResponse {
+export interface IResponse<T> {
     msg: string;
-    response: IBlog;
+    response: T;
     status: number;
     success: boolean;
 }
