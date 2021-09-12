@@ -11,8 +11,8 @@ type Props = {
 const Index = ({ allPosts }: Props) => {
   return (
     <Layout>
-      {allPosts.map(post =>
-        <div>
+      {allPosts.sort((p1, p2) => p2.id - p1.id).map(post =>
+        <div key={post.id}>
           <section>
             <Link href={"/posts/" + post.slug} key={post.slug}>
               <a style={{ fontSize: "2em" }}>{post.title}</a>

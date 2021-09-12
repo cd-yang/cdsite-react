@@ -4,6 +4,7 @@ export interface IPost {
     author: string;
     slug: string;
     content: string;
+    contentMarkdown: string;
     createOnUtc: string;
     contentAbstract: string;
 }
