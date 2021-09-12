@@ -30,7 +30,7 @@ const Index = ({ allPosts }: Props) => {
 
 export default Index
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const allPosts = await getAllPosts()
 
   return {
