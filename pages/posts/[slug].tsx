@@ -18,7 +18,7 @@ const Post = ({ post }: Props) => {
   }
   return (
     <Layout>
-      <article className="mb-32">
+      <article>
         <div>
           <h1>{post.title}</h1>
           <article dangerouslySetInnerHTML={{
