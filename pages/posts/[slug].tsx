@@ -20,8 +20,11 @@ const Post = ({ post }: Props) => {
     <Layout>
       <article>
         <div>
-          <h1>{post.title}</h1>
-          <article dangerouslySetInnerHTML={{
+          <h1 className="text-4xl">{post.title}</h1>
+          <time className="ml-2">
+            {new Date(post.createOnUtc).toLocaleDateString()}
+          </time>
+          <article className="mt-1 mb-8" dangerouslySetInnerHTML={{
             __html: post?.contentMarkdown
               ? converter.makeHtml(post.contentMarkdown)
               : post?.content

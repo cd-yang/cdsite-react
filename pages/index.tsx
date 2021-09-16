@@ -12,16 +12,16 @@ const Index = ({ allPosts }: Props) => {
   return (
     <Layout>
       {allPosts.sort((p1, p2) => p2.id - p1.id).map(post =>
-        <div key={post.id}>
+        <div key={post.id} className="items-center">
           <section>
             <Link href={"/posts/" + post.slug} key={post.slug}>
-              <a style={{ fontSize: "2em" }}>{post.title}</a>
+              <a className="text-4xl">{post.title}</a>
             </Link>
           </section>
-          <time style={{ marginLeft: "0.5em" }}>
+          <time className="ml-2">
             {new Date(post.createOnUtc).toLocaleDateString()}
           </time>
-          <article style={{ marginBottom: "30px" }}>{post.contentAbstract}</article>
+          <article className="mb-8">{post.contentAbstract}</article>
         </div>
       )}
     </Layout>

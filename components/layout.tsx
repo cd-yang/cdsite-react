@@ -12,8 +12,8 @@ const Layout = ({ preview, children }: Props) => {
     <>
       <Meta />
       <Header />
-      <div>
-        <main>{children}</main>
+      <div className="justify-center flex mt-4">
+        <main className="sm:w-2/3 w-screen">{children}</main>
       </div>
       <Footer />
     </>

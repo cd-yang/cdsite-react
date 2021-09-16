@@ -10,11 +10,11 @@ export default function About() {
                 <hr />
                 <h3>
                     Powered by
-                    <a target="_blank" rel="noreferrer" href="https://reactjs.org/" style={{ margin: "0px 4px" }}>
+                    <a target="_blank" rel="noreferrer" href="https://reactjs.org/">
                         <img alt="React" src="https://img.shields.io/badge/-React-77dffc?logo=react&logoColor=ffffff"></img>
                     </a>
                     and
-                    <a target="_blank" rel="noreferrer" href="https://dotnet.microsoft.com/" style={{ marginLeft: "4px" }} >
+                    <a target="_blank" rel="noreferrer" href="https://dotnet.microsoft.com/" className="ml-1">
                         <img alt=".Net 5" src="https://img.shields.io/badge/.NET5-6e16e8?logo=C-Sharp&logoColor=ffffff" />
                     </a>
                 </h3>

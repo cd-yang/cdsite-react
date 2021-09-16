@@ -8,10 +8,10 @@ export default function Header() {
         <img className="w-8 h-8 m-2" alt='logo' src="/favicon/android-chrome-192x192.png" />
       </Link>
       <Link href='/'>
-        <div className="ml-8">CD-Yang</div>
+        <div className="ml-8 mt-3">CD-Yang</div>
       </Link>
       <Link href='/about'>
-        <div className="mx-8">关于</div>
+        <div className="ml-8 mr-32 mt-3">关于</div>
       </Link>
     </div>
   );
