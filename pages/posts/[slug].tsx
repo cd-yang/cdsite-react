@@ -1,9 +1,18 @@
-import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import ErrorPage from 'next/error';
 import showdown from 'showdown';
-import Layout from '../../components/layout'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
-import { IPost } from '../../types/IBlog'
+import hljs from 'highlight.js';
+import javascript from 'highlight.js/lib/languages/javascript';
+import csharp from 'highlight.js/lib/languages/javascript';
+import Layout from '../../components/layout';
+import { getPostBySlug, getAllPosts } from '../../lib/api';
+import { IPost } from '../../types/IBlog';
+
+import 'highlight.js/styles/default.css';
+
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('c#', csharp);
 
 const converter = new showdown.Converter();
 
@@ -13,9 +22,15 @@ type Props = {
 
 const Post = ({ post }: Props) => {
   const router = useRouter()
+
+  useEffect(() => {
+    hljs.initHighlighting();
+  }, []);
+
   if (!router.isFallback && !post) {
     return <ErrorPage statusCode={404} />
   }
+
   return (
     <Layout>
       <article>
