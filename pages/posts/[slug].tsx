@@ -9,7 +9,7 @@ import Layout from '../../components/layout';
 import { getPostBySlug, getAllPosts } from '../../lib/api';
 import { IPost } from '../../types/IBlog';
 
-import 'highlight.js/styles/default.css';
+import 'highlight.js/styles/a11y-dark.css';
 
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('c#', csharp);
