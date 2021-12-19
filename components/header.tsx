@@ -11,7 +11,10 @@ export default function Header() {
         <div className="ml-8 mt-3">CD-Yang</div>
       </Link>
       <Link href='/about'>
-        <div className="ml-8 mr-32 mt-3">关于</div>
+        <div className="ml-8 mt-3">关于</div>
+      </Link>
+      <Link href='/playground'>
+        <div className="ml-8 mr-2 mt-3">Playground</div>
       </Link>
     </div>
   );
